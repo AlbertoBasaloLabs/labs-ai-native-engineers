@@ -10,50 +10,102 @@ The course follows one thread: **the human-AI loop lengthens and your interventi
 - **II — Human On The Loop** (you supervise)
 - **III — Away From Keyboard** (you delegate)
 
-## The 24 lessons
+## The Demo - AstroBookings
 
-### I · Human In The Loop
-**1 · Vibe Coding to AI-DD**
-- 1.1 Vibe Coding — iterate in short loops until you get a result.
-- 1.2 The AI coding Primitives — prompts, rules, skills: the base blocks.
-- 1.3 AI-Driven Development — optimize the human-AI interaction.
+A space-travel booking system: a backend API + a frontend WebApp.
 
-**2 · Context Engineering**
-- 2.1 The Context Window — how much fits, what's used, what's wasted.
-- 2.2 Context Selection — prioritize what's relevant at each moment.
-- 2.3 Deterministic rules — set rules to reduce randomness.
+**Starting repo state:** front + back already runnable, with `GET /api/health` returning uptime, and the client calling and displaying it.
 
-### II · Human On The Loop
-**3 · Spec-Driven Development**
-- 3.1 Specs as Source of Truth — problem, solution and verification in one contract.
-- 3.2 From Spec to planned task — plan the implementation to satisfy the contract.
-- 3.3 Writing code is the easy part — plans and rules to generate code and tests.
+## I - Human In The Loop
+### 1 - Vibe Coding to AI-DD
+- **1.1 Vibe Coding** 
+  — iterate in short loops until you get a result.
+  - `feat(rockets): scaffold CRUD via short vibe-coding loops`
+- **1.2 The AI coding Primitives** 
+  — prompts, rules, skills: the building blocks.
+  - `chore(ai): extract reusable prompt, rules and endpoint skill`
+- **1.3 AI-Driven Development** 
+  — Human In The Loop, rules and the need for specs.
+  - `feat(rockets): add capacity & range validation via AI-DD flow`
 
-**4 · Trust but Verify**
-- 4.1 E2E Behavior Validation — functional verification of the spec.
-- 4.2 The fixing loop — from failure to fix and back to the test. **(RED moment)**
-- 4.3 The review loop — early review for robust, maintainable code.
+### 2 - Context Engineering
+- **2.1 The Context Window** 
+  — how much fits, what's used, what's wasted.
+  - `docs(context): inventory skeleton, map signal vs noise`
+- **2.2 Context Selection** 
+  — prioritize what's relevant at each moment with skills and product documentation.
+  - `feat(users): register operators and passengers`
+- **2.3 Deterministic rules** 
+  — set rules to reduce randomness.
+  - `chore(rules): define structure/naming rules, regen users`
 
-**5 · Legacy Refactoring**
-- 5.1 Reading the Legacy — explore solutions and extract rules.
-- 5.2 Change Triage — control and ease functional change.
-- 5.3 Structural Refactoring — plan and document implementation changes. **(RED moment)**
+## II - Human On The Loop
+### 3 - Spec-Driven Development
+- **3.1 Specs as Source of Truth** 
+  — problem, solution and verification in one contract.
+  - `docs(launches): spec problem/solution/verification + lifecycle`
+- **3.2 From Spec to planned task** 
+  — plan the implementation to satisfy the contract.
+  - `docs(launches): turn spec into verifiable task plan`
+- **3.3 Writing code is the easy part** 
+  — plans and rules to generate code and tests.
+  - `feat(launches): implement launches + state transitions from plan`
 
-### III · Away From Keyboard
-**6 · Harness Engineering**
-- 6.1 Hooks & Control Points — deterministic actions in the agent-model cycle.
-- 6.2 MCP Integration — connect the agent to the project's real environment.
-- 6.3 Subagents — roles, skills and configuration of secondary agents.
+### 4 - Trust but Verify
+- **4.1 E2E Behavior Validation** 
+  — functional verification of the spec.
+  - `test(bookings): add e2e flow validating the booking spec`
+- **4.2 The fixing loop** 
+  — from failure to fix and back to the test. **(RED moment)**
+  - `fix(bookings): block overbooking against rocket capacity`
+- **4.3 The review loop** 
+  — early review for robust, maintainable code.
+  - `refactor(bookings): apply early-review feedback on book + pay-mock`
 
-**7 · Agent Orchestration**
-- 7.1 The Session Window Problem — split before drowning the context.
-- 7.2 Sequential vs Parallel — coordination models and task sharing.
-- 7.3 Context sharing — agent swarms with a common goal.
+### 5 - Legacy Refactoring
+- **5.1 Reading the Legacy** 
+  — explore solutions and extract rules.
+  - `docs(legacy): map implicit rules behind rockets/launches`
+- **5.2 Change Triage** 
+  — control and ease functional change.
+  - `docs(core): triage result-pattern + central-log impact`
+- **5.3 Structural Refactoring** 
+  — plan and document implementation changes. **(RED moment)**
+  - `refactor(core): migrate dto→value-object w/ result, tests green`
 
-**8 · Loop Engineering**
-- 8.1 From Pipelines to Loops — go back to fix or to do more.
-- 8.2 Stop Conditions — the triage needed to know when to stop.
-- 8.3 Away From Keyboard — trusting more requires checking more.
+## III - Away From Keyboard
+### 6 - Harness Engineering
+- **6.1 Hooks & Control Points** 
+  — deterministic actions in the agent-model cycle.
+  - `ci(hooks): run lint+tests+quality-gate on each agent change`
+- **6.2 MCP Integration** 
+  — connect the agent to the project's real environment.
+  - `feat(payments): operate pay/refund via mcp to mock gateway`
+- **6.3 Subagents** 
+  — roles, skills and configuration of secondary agents.
+  - `chore(agents): define tester, refactor and doc subagents`
+
+### 7 - Agent Orchestration
+- **7.1 The Session Window Problem** 
+  — split before drowning the context.
+  - `chore(obs): slice logs/observability/errors into safe units`
+- **7.2 Sequential vs Parallel** 
+  — coordination models and task sharing.
+  - `feat(app): build api and webapp with parallel agents`
+- **7.3 Context sharing** 
+  — agent swarms with a common goal.
+  - `feat(bookings): orchestrate swarm for booking→payment flow`
+
+### 8 - Loop Engineering
+- **8.1 From Pipelines to Loops** 
+  — go back to fix or to do more.
+  - `ci(loop): turn build/test pipeline into self-correcting loop`
+- **8.2 Stop Conditions** 
+  — the triage needed to know when to stop.
+  - `feat(launches): add stop-conditions + audit trail for cancel/suspend`
+- **8.3 Away From Keyboard** 
+  — trusting more requires checking more.
+  - `feat(payments): autonomous loop completes refunds, review AFK`
 
 ## The demo — AstroBookings
 
