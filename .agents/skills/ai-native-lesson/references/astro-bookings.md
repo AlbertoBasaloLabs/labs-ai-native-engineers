@@ -27,7 +27,7 @@ Apart from the domain, the demo must also weave in transversal concerns and at l
 
 - Logs / observability, centralized error handling, helper libraries.
 - A significant implementation change — e.g. DTO→Value Object, centralized logging, result pattern.
-- A one business modification — e.g. launch cancellation reason and fee.
+- A one business modification — e.g. launch cancellation reason and fee. lauches scheduling with time restictions for the same rocket.
 
 > [!NOTE]
 > The demo plan must be independent of the technology. When I record or deliver it live, I will land it on a specific stack.
